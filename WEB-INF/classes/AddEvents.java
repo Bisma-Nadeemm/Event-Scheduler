@@ -15,15 +15,14 @@ public class AddJobs extends HttpServlet {
 	
 	PrintWriter out = response.getWriter();
 HttpSession session = request.getSession(false);
-    int type = (int)session.getAttribute("type");
-    if(type==1){
+   
 
+    String image=request.getParameter("image");
     String title=request.getParameter("title");
-    String location=request.getParameter("location");
-String category=request.getParameter("category");
-String status=request.getParameter("status");
-String company=request.getParameter("company");
-String description=request.getParameter("d");
+String description=request.getParameter("description");
+String date=request.getParameter("date");
+String time=request.getParameter("time");
+
     
    
 
@@ -32,24 +31,22 @@ String description=request.getParameter("d");
 
     Class.forName("com.mysql.jdbc.Driver");
 
-    String url = "jdbc:mysql://localhost/registeration";
+    String url = "jdbc:mysql://localhost/event scheduler";
 
     Connection con=DriverManager.getConnection(url, "root", "root");
 
     Statement st=con.createStatement();
 
      
-     String query = "Insert into jobs(title,location,category,status,company,description)VALUES('"+ title + "','" + location+ "','" + category+ "','" + status+ "','" +company+ "','" + description+ "') ";
+     String query = "Insert into eventss(image,title,description,date,time)VALUES('"+ image + "','" + title+ "','" + description+ "','" + date+ "','" + time+ "') ";
 
-     
-
-      int rs = st.executeUpdate( query );
+     int rs = st.executeUpdate( query );
 
      if(rs==1){	
-response.sendRedirect("ViewJobs.jsp");
+response.sendRedirect("ViewEvents.jsp");
  		}
-	else{	out.println("<h1>Job could not be added.</h1>");
-out.println("<a href=\"http://localhost:8080/online%20job%20portal/admin.jsp\">MainPage</a>"); 		}
+	else{	out.println("<h1>Event could not be added.</h1>");
+	}
 
      out.println("</body></html>");
 
