@@ -1,0 +1,220 @@
+<html>
+<head>
+ <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/index.css" />
+    <link rel="stylesheet" href="./CSS/login.css" />
+    <title>Registeration Page</title>
+	<script language="JavaScript" type="text/javaScript">
+
+function validation()
+{	
+
+	if ( document.registeration.name.value == "" )
+	    {
+			alert("Username cannot be empty");			
+			return false;
+	    }
+
+if ( document.registeration.Email.value == "" )		
+        {
+		alert("Please enter email address");
+		return false;
+}
+if ( document.registeration.Email.value != "" )
+	{
+	
+    var email=document.registeration.Email.value;
+	var length=email.length;
+	var index=email.indexOf("@");
+	var dot=email.indexOf(".");
+	var check=0;
+	if(dot>-1 && dot>index+1 && index>-1 && index>=1   )
+	{
+		if(length-1>dot)
+		{
+			check=1;
+		}
+	}
+	
+	if(check==0)
+	{
+	   	alert("Invalid email");
+return false;
+	}
+	
+
+   }
+
+
+if ( document.registeration.pwd.value == "" )	
+	   {
+			alert("password cannot be empty");
+			return false;
+	   }
+if ( document.registeration.confirm_password.value == "" )	
+	   {
+			alert("confirm password cannot be empty");
+			return false;
+	   }
+if ( document.registeration.pwd.value!=document.registeration.confirm_password.value )
+	{
+			alert("New Password and Confirm new Password doesnt match");
+			return false;
+	}	
+
+		
+
+	return true;
+
+}
+
+
+</script>
+<style>
+main {
+    display: flex;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    min-height: 500px;
+}
+
+:root {
+    --padding: clamp(1rem, 2vw, 3rem);
+}
+
+#mainLeft {
+    width: 50%;
+    height: 100%;
+    overflow: scroll;
+    padding: var(--padding) var(--padding);
+
+}
+
+#mainLeft form {
+    width: 50%;
+    min-width: 350px;
+    margin: 2rem auto;
+}
+
+#mainRight {
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 1, 0.735), rgba(0, 0, 0, 0.598)), url("../Images/Login_Page_Image.jpg");
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    color: white;
+}
+
+.input_login {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+    font-size: var(--fs4);
+}
+
+.input_login input {
+    margin-top: 0.3rem;
+    padding: 0.5rem;
+    font-size: var(--fs4);
+}
+
+#logo_image {
+    width: clamp(4rem, 10vw, 10rem);
+    margin: 0 auto;
+}
+
+#mainLeft h1 {
+    text-align: center;
+}
+
+#mainRight h1 {
+    text-align: center;
+}
+.signup
+{
+    margin-top: 2rem;
+    font-size: var(--fs5);
+}
+.signup a
+{
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: bolder;
+}
+#passwordShow
+{
+    font-size: var(--fs5);
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+#passwordShow input
+{
+    width: 1rem;
+    height: 1rem;
+    margin: 0 0.5rem 0 0;
+}
+
+.Error
+{
+    color: red;
+    font-size: var(--fs5);
+    margin-left: 1rem;
+}
+</style>
+	</head>
+<body>
+<main class="main">
+      <div id="mainLeft">
+        <div id="logo_image">
+          <img src="./Images/logo.png" alt="" />
+        </div>
+        <!-- Sign Up Form Here -->
+        <h1>Sign Up</h1>
+
+	<form action="registeration.jsp" method="post" name="registeration" onsubmit="return validation()">
+	<div class="container"> 
+ <div class="input_login">
+	     <label for="name">Username:</label>
+	      <input type=text name="name" required>
+		  </div>
+		  <div class="input_login">
+      <label for="email">Email:</label>
+	      <input type="email" name="Email" required>
+		  </div>
+		  <div class="input_login">
+     <label for="p">Password:</label>
+	    <input type=password name="pwd" class="pass" required >
+		</div>
+	 <div class="input_login">
+	     <label for="cp">Confirm password: <span class="Error">&nbsp</span></label> 
+	     <input type=password name="confirm_password" required> 
+	     </div>
+	     <button type="submit"  class="Submit"
+            id="SignUp">SignUp</button> 
+	   </div>
+	    <div class="signup">
+            
+
+<td><p>Already have an account?<a href="Login.html">login</a></p></td></tr>
+  	</div>
+    </form>
+	</div>
+	 <div id="mainRight">
+          <h1>
+            World's Best Event planner website
+          </h1>
+    
+      </div>
+	 
+    </main>
+	
+</body>
+</html>
