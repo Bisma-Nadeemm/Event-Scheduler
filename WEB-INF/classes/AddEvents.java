@@ -5,7 +5,7 @@ import java.sql.*;
 import javax.swing.*;
 
 
-public class AddJobs extends HttpServlet {
+public class AddEvents extends HttpServlet {
   
   
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,13 +58,6 @@ response.sendRedirect("ViewEvents.jsp");
       out.println(e);
     }
 }
-else {
-	
-	 PrintWriter out1 = response.getWriter();
-	  out.println("<html>");
-	 out.println("<h1>Invalid Page</h1>");
-	out.println("</body></html>");
-  }
 
-}
+
 }
