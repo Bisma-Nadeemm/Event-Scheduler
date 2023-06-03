@@ -5,7 +5,7 @@ import java.sql.*;
 import javax.swing.*;
 
 
-public class AddEvents extends HttpServlet {
+public class ViewEvents extends HttpServlet {
   
   
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,17 +38,9 @@ String time=request.getParameter("time");
     Statement st=con.createStatement();
 
      
-     String query = "Insert into eventss(image,title,description,date,time)VALUES('"+ image + "','" + title+ "','" + description+ "','" + date+ "','" + time+ "') ";
+     String query = "SELECT * FROM eventss";
 
      int rs = st.executeUpdate( query );
-
-     if(rs==1){	
-response.sendRedirect("ViewEvents.java");
- 		}
-	else{	out.println("<h1>Event could not be added.</h1>");
-	}
-
-     out.println("</body></html>");
 
            st.close();
            con.close();
