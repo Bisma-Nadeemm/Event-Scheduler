@@ -9,8 +9,6 @@ The Dynamic Event Scheduler Website is a versatile web application designed to h
   - [Description](#description)
   - [Features](#features)
   - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [License](#license)
   - [Contact](#contact)
 
 ## Description
